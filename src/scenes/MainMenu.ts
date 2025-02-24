@@ -11,7 +11,9 @@ export class MainMenu extends Scene {
     create() {
         const { width, height } = this.cameras.main;
 
- 
+        const sky = this.add.image(0, 0, 'sky').setOrigin(0, 0);
+        sky.displayWidth = this.cameras.main.width;
+        sky.displayHeight = this.cameras.main.height;
 
         this.startButton = this.add.text(width / 2, height / 2, 'Start Game', {
             fontFamily: 'Arial Black',
@@ -22,7 +24,7 @@ export class MainMenu extends Scene {
             align: 'center'
         })
         .setOrigin(0.5, 0.5)
-        .setInteractive(); // Make it clickable
+        .setInteractive(); 
 
         this.startButton.on('pointerdown', () => {
             this.scene.start('Game');

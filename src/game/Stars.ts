@@ -12,7 +12,7 @@ export class Stars {
     private createStars() {
         this.stars = this.scene.physics.add.group({
             key: 'star',
-            repeat: 11,
+            repeat: 10,
             setXY: { x: 12, y: 0, stepX: 70 },
         });
 
