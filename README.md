@@ -2,6 +2,8 @@
 
 Welcome to **Star Smasher**, a game built with **Phaser 3**, **React**, and **TypeScript**. In this project, I developed a responsive game with a start button that adapts to different screen sizes.
 
+You can play the game live here: [Star Smasher](https://star-smasher.netlify.app/)
+
 ## Table of Contents
 
 - [Installation](#installation)
@@ -68,7 +70,6 @@ The solution involved adjusting the start button's position based on the canvas'
 The biggest challenge was positioning the start game button responsively. Initially, the button would move unpredictably when resizing the viewport. After inspecting the DOM and analyzing the canvas element, I realized that the canvas size could be used to calculate the button’s position.
 
 Despite several failed attempts, including trying different viewport-based solutions, I eventually debugged the issue by basing the button's position on the canvas' height and width, making it responsive.
-
 
 ## Conclusion
 
