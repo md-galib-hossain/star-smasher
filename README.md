@@ -1,151 +1,81 @@
-# Phaser Vite TypeScript Template
+# Star Smasher - Phaser 3 Game
 
-This is a Phaser 3 project template that uses Vite for bundling. It supports hot-reloading for quick development workflow, includes TypeScript support and scripts to generate production-ready builds.
+Welcome to **Star Smasher**, a game built with **Phaser 3**, **React**, and **TypeScript**. In this project, I developed a responsive game with a start button that adapts to different screen sizes.
 
-**[This Template is also available as a JavaScript version.](https://github.com/phaserjs/template-vite)**
+## Table of Contents
 
-### Versions
+- [Installation](#installation)
+- [Run the Project](#run-the-project)
+- [Development Approach](#development-approach)
+- [Challenges Faced](#challenges-faced)
+- [Conclusion](#conclusion)
 
-This template has been updated for:
+## Installation
 
-- [Phaser 3.88.2](https://github.com/phaserjs/phaser)
-- [Vite 5.3.1](https://github.com/vitejs/vite)
-- [TypeScript 5.4.5](https://github.com/microsoft/TypeScript)
+Follow the steps below to clone and set up the project:
 
-![screenshot](screenshot.png)
+1.  **Clone the repository:**
 
-## Requirements
+    ```bash
+    git clone [https://github.com/md-galib-hossain/star-smasher](https://github.com/md-galib-hossain/star-smasher)
+    cd star-smasher
+    ```
 
-[Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
+2.  **Install dependencies:**
 
-## Available Commands
+    Make sure you have **Node.js** installed. Then, run the following command to install the necessary dependencies:
 
-| Command | Description |
-|---------|-------------|
-| `npm install` | Install project dependencies |
-| `npm run dev` | Launch a development web server |
-| `npm run build` | Create a production build in the `dist` folder |
-| `npm run dev-nolog` | Launch a development web server without sending anonymous data (see "About log.js" below) |
-| `npm run build-nolog` | Create a production build in the `dist` folder without sending anonymous data (see "About log.js" below) |
+    ```bash
+    npm install
+    ```
 
-## Writing Code
+## Run the Project
 
-After cloning the repo, run `npm install` from your project directory. Then, you can start the local development server by running `npm run dev`.
+1.  **Start the development server:**
 
-The local development server runs on `http://localhost:8080` by default. Please see the Vite documentation if you wish to change this, or add SSL support.
+    Run the following command to launch the game:
 
-Once the server is running you can edit any of the files in the `src` folder. Vite will automatically recompile your code and then reload the browser.
+    ```bash
+    npm run dev
+    ```
 
-## Template Project Structure
+    This will open the game in your default web browser.
 
-We have provided a default project structure to get you started. This is as follows:
+## Development Approach
 
-- `index.html` - A basic HTML page to contain the game.
-- `src` - Contains the game source code.
-- `src/main.ts` - The main **entry** point. This contains the game configuration and starts the game.
-- `src/vite-env.d.ts` - Global TypeScript declarations, provide types information.
-- `src/scenes/` - The Phaser Scenes are in this folder.
-- `public/style.css` - Some simple CSS rules to help with page layout.
-- `public/assets` - Contains the static assets used by the game.
+The development of **Star Smasher** followed a systematic approach using the following steps:
 
-## Handling Assets
+### 1. **Creating the Game with React and Phaser**
 
-Vite supports loading assets via JavaScript module `import` statements.
+First, I created a React app as the base for the project, which will house the Phaser game. I followed this [guide from Phaser](https://phaser.io/tutorials/create-game-app) that recommends using React for building the app and integrating Phaser into it. Additionally, I used TypeScript for better developer experience.
 
-This template provides support for both embedding assets and also loading them from a static folder. To embed an asset, you can import it at the top of the JavaScript file you are using it in:
+### 2. **Building the Game Mechanics**
 
-```js
-import logoImg from './assets/logo.png'
-```
+I followed the tutorial on creating a basic Phaser 3 game from the official documentation: [Making Your First Phaser 3 Game](https://phaser.io/tutorials/making-your-first-phaser-3-game/part1). This tutorial guided me through setting up the core game mechanics, including player movements, collisions, and basic animations.
 
-To load static files such as audio files, videos, etc place them into the `public/assets` folder. Then you can use this path in the Loader calls within Phaser:
+### 3. **Responsive Design**
 
-```js
-preload ()
-{
-    //  This is an example of an imported bundled image.
-    //  Remember to import it at the top of this file
-    this.load.image('logo', logoImg);
+After completing the game mechanics, I focused on making the game responsive. The challenge came when trying to position the start game button, which would move incorrectly depending on the viewport size.
 
-    //  This is an example of loading a static image
-    //  from the public/assets folder:
-    this.load.image('background', 'assets/bg.png');
-}
-```
+I noticed that the canvas used for the Phaser game had a dynamic width and height. This gave me the idea to base the position of the button on the canvas size, rather than the viewport. However, this led to a few iterations and debugging before I finally found a solution that made the button fully responsive.
 
-When you issue the `npm run build` command, all static assets are automatically copied to the `dist/assets` folder.
+The solution involved adjusting the start button's position based on the canvas' dimensions and updating it when the viewport changes. This ensured that the button remained in the correct position regardless of the screen size.
 
-## Deploying to Production
+## Challenges Faced
 
-After you run the `npm run build` command, your code will be built into a single bundle and saved to the `dist` folder, along with any other assets your project imported, or stored in the public assets folder.
+### 1. **Responsive Design of the Start Button**
 
-In order to deploy your game, you will need to upload *all* of the contents of the `dist` folder to a public facing web server.
+The biggest challenge was positioning the start game button responsively. Initially, the button would move unpredictably when resizing the viewport. After inspecting the DOM and analyzing the canvas element, I realized that the canvas size could be used to calculate the button’s position.
 
-## Customizing the Template
+Despite several failed attempts, including trying different viewport-based solutions, I eventually debugged the issue by basing the button's position on the canvas' height and width, making it responsive.
 
-### Vite
 
-If you want to customize your build, such as adding plugin (i.e. for loading CSS or fonts), you can modify the `vite/config.*.mjs` file for cross-project changes, or you can modify and/or create new configuration files and target them in specific npm tasks inside of `package.json`. Please see the [Vite documentation](https://vitejs.dev/) for more information.
+## Conclusion
 
-## About log.js
+**Star Smasher** is a responsive Phaser 3 game that I built by following official guides, troubleshooting, and iterating on designs. The project allowed me to gain hands-on experience with Phaser and TypeScript, and it was a valuable exercise in making web-based games more responsive and user-friendly.
 
-If you inspect our node scripts you will see there is a file called `log.js`. This file makes a single silent API call to a domain called `gryzor.co`. This domain is owned by Phaser Studio Inc. The domain name is a homage to one of our favorite retro games.
+Feel free to clone the repo and explore the game. Contributions and feedback are welcome!
 
-We send the following 3 pieces of data to this API: The name of the template being used (vue, react, etc). If the build was 'dev' or 'prod' and finally the version of Phaser being used.
+---
 
-At no point is any personal data collected or sent. We don't know about your project files, device, browser or anything else. Feel free to inspect the `log.js` file to confirm this.
-
-Why do we do this? Because being open source means we have no visible metrics about which of our templates are being used. We work hard to maintain a large and diverse set of templates for Phaser developers and this is our small anonymous way to determine if that work is actually paying off, or not. In short, it helps us ensure we're building the tools for you.
-
-However, if you don't want to send any data, you can use these commands instead:
-
-Dev:
-
-```bash
-npm run dev-nolog
-```
-
-Build:
-
-```bash
-npm run build-nolog
-```
-
-Or, to disable the log entirely, simply delete the file `log.js` and remove the call to it in the `scripts` section of `package.json`:
-
-Before:
-
-```json
-"scripts": {
-    "dev": "node log.js dev & dev-template-script",
-    "build": "node log.js build & build-template-script"
-},
-```
-
-After:
-
-```json
-"scripts": {
-    "dev": "dev-template-script",
-    "build": "build-template-script"
-},
-```
-
-Either of these will stop `log.js` from running. If you do decide to do this, please could you at least join our Discord and tell us which template you're using! Or send us a quick email. Either will be super-helpful, thank you.
-
-## Join the Phaser Community!
-
-We love to see what developers like you create with Phaser! It really motivates us to keep improving. So please join our community and show-off your work 😄
-
-**Visit:** The [Phaser website](https://phaser.io) and follow on [Phaser Twitter](https://twitter.com/phaser_)<br />
-**Play:** Some of the amazing games [#madewithphaser](https://twitter.com/search?q=%23madewithphaser&src=typed_query&f=live)<br />
-**Learn:** [API Docs](https://newdocs.phaser.io), [Support Forum](https://phaser.discourse.group/) and [StackOverflow](https://stackoverflow.com/questions/tagged/phaser-framework)<br />
-**Discord:** Join us on [Discord](https://discord.gg/phaser)<br />
-**Code:** 2000+ [Examples](https://labs.phaser.io)<br />
-**Read:** The [Phaser World](https://phaser.io/community/newsletter) Newsletter<br />
-
-Created by [Phaser Studio](mailto:support@phaser.io). Powered by coffee, anime, pixels and love.
-
-The Phaser logo and characters are &copy; 2011 - 2024 Phaser Studio Inc.
-
-All rights reserved.
+Happy coding! 🎮🚀
