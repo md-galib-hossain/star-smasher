@@ -35,12 +35,12 @@ const buttonConfig = {
     top: '75%',
     left: '50%',
     width: '70%',
+    // maxWidth:'300px',
     height: '48px',
     borderRadius: '8px',
     fontSize: '24px',
     transform: 'translateX(-50%)',
-    border: 'none',
-    cursor: 'pointer',
+    
     display: 'none' 
   }
 };
