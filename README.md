@@ -17,7 +17,7 @@ Follow the steps below to clone and set up the project:
 1.  **Clone the repository:**
 
     ```bash
-    git clone [https://github.com/md-galib-hossain/star-smasher](https://github.com/md-galib-hossain/star-smasher)
+    git clone https://github.com/md-galib-hossain/star-smasher
     cd star-smasher
     ```
 
