@@ -20,11 +20,13 @@
         "build-nolog": "vite build --config vite/config.prod.mjs"
     },
     "devDependencies": {
+        "@types/react": "^19.0.10",
         "terser": "^5.31.0",
         "typescript": "^5.4.5",
         "vite": "^5.3.1"
     },
     "dependencies": {
-        "phaser": "^3.88.2"
+        "phaser": "^3.88.2",
+        "styled-components": "^6.1.15"
     }
 }

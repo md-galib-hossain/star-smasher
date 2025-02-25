@@ -49,13 +49,12 @@ export class Game extends Scene {
                 child.enableBody(true, child.x, 0, true, true);
             });
     
-            // Ensure bomb coordinates are valid
             const x = (player.x < this.cameras.main.width / 2)
                 ? Phaser.Math.Between(this.cameras.main.width / 2, this.cameras.main.width)
                 : Phaser.Math.Between(0, this.cameras.main.width / 2);
     
             const y = this.cameras.main.height * 0.2; // 20% of screen height
-            console.log('Creating bomb at:', x, y); // Check coordinates
+            console.log('Creating bomb at:', x, y); 
             this.bombs.createBomb(x, y);
         }
     }
